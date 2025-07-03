@@ -16,6 +16,8 @@ const drumPads = [
 function App() {
   const [display, setDisplay] = useState("Press a key or click a pad");
   const [activePad, setActivePad] = useState("");
+  
+  console.log("App component rendering...");
 
   const playSound = (key) => {
     const pad = drumPads.find((p) => p.key === key);
