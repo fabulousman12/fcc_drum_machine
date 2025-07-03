@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import "./App.css";
 
@@ -56,7 +55,7 @@ function App() {
   const playSound = (key) => {
     const audio = document.getElementById(key);
     const pad = drumPads.find((p) => p.key === key);
-    
+
     if (audio && pad) {
       audio.currentTime = 0;
       audio.play();
@@ -76,6 +75,7 @@ function App() {
 
   return (
     <div id="drum-machine">
+      <p>Hi</p>
       <div id="display">{display}</div>
       <div className="pad-grid">
         {drumPads.map((pad) => (
@@ -86,7 +86,12 @@ function App() {
             onClick={() => playSound(pad.key)}
           >
             {pad.key}
-            <audio className="clip" id={pad.key} src={pad.url} preload="auto"></audio>
+            <audio
+              className="clip"
+              id={pad.key}
+              src={pad.url}
+              preload="auto"
+            ></audio>
           </div>
         ))}
       </div>
