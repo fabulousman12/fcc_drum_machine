@@ -6,72 +6,76 @@ const drumPads = [
   {
     key: "Q",
     id: "Heater-1",
-    url: "https://cdn.freesound.org/previews/66/66717_931655-lq.mp3",
+    url: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3",
   },
   {
     key: "W",
     id: "Heater-2",
-    url: "https://cdn.freesound.org/previews/66/66716_931655-lq.mp3",
+    url: "https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3",
   },
   {
     key: "E",
     id: "Heater-3",
-    url: "https://cdn.freesound.org/previews/66/66715_931655-lq.mp3",
+    url: "https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3",
   },
   {
     key: "A",
-    id: "Heater-4",
-    url: "https://cdn.freesound.org/previews/66/66714_931655-lq.mp3",
+    id: "Heater-4_1",
+    url: "https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3",
   },
   {
     key: "S",
-    id: "Clap",
-    url: "https://cdn.freesound.org/previews/67/67862_931655-lq.mp3",
+    id: "Heater-6",
+    url: "https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3",
   },
   {
     key: "D",
-    id: "Open-HH",
-    url: "https://cdn.freesound.org/previews/67/67861_931655-lq.mp3",
+    id: "Dsc_Oh",
+    url: "https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3",
   },
   {
     key: "Z",
-    id: "Kick-n'-Hat",
-    url: "https://cdn.freesound.org/previews/66/66720_931655-lq.mp3",
+    id: "Kick_n_Hat",
+    url: "https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3",
   },
   {
     key: "X",
-    id: "Kick",
-    url: "https://cdn.freesound.org/previews/66/66719_931655-lq.mp3",
+    id: "RP4_KICK_1",
+    url: "https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3",
   },
   {
     key: "C",
-    id: "Closed-HH",
-    url: "https://cdn.freesound.org/previews/66/66718_931655-lq.mp3",
+    id: "Cev_H2",
+    url: "https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3",
   },
 ];
 
 function App() {
-  const [display, setDisplay] = useState("Press a Pad");
+  const [display, setDisplay] = useState("");
 
   const playSound = (key) => {
     const audio = document.getElementById(key);
-    if (audio) {
+    const pad = drumPads.find((p) => p.key === key);
+    
+    if (audio && pad) {
       audio.currentTime = 0;
       audio.play();
-      const pad = drumPads.find((p) => p.key === key);
-      if (pad) setDisplay(pad.id);
+      setDisplay(pad.id);
     }
   };
 
   useEffect(() => {
-    const handleKeyDown = (e) => playSound(e.key.toUpperCase());
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    const handleKeyPress = (event) => {
+      const key = event.key.toUpperCase();
+      playSound(key);
+    };
+
+    document.addEventListener("keydown", handleKeyPress);
+    return () => document.removeEventListener("keydown", handleKeyPress);
   }, []);
 
   return (
     <div id="drum-machine">
-      <h1>Drum Machine</h1>
       <div id="display">{display}</div>
       <div className="pad-grid">
         {drumPads.map((pad) => (
@@ -82,7 +86,7 @@ function App() {
             onClick={() => playSound(pad.key)}
           >
             {pad.key}
-            <audio className="clip" id={pad.key} src={pad.url}></audio>
+            <audio className="clip" id={pad.key} src={pad.url} preload="auto"></audio>
           </div>
         ))}
       </div>

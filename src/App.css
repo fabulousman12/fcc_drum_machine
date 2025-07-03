@@ -1,47 +1,71 @@
+
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background: #1e1e1e;
+  background: linear-gradient(45deg, #1a1a2e, #16213e);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 #drum-machine {
-  background: #333;
+  background: rgba(0, 0, 0, 0.8);
   padding: 2rem;
-  border-radius: 10px;
-  width: 360px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   text-align: center;
+  border: 2px solid #333;
 }
 
 #display {
-  background: #555;
+  background: #000;
+  color: #00ff00;
   padding: 1rem;
-  margin-bottom: 1.5rem;
-  font-size: 1.25rem;
-  border-radius: 5px;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 8px;
+  border: 2px solid #333;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', monospace;
 }
 
 .pad-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 .drum-pad {
-  background: #777;
-  padding: 1.2rem;
-  border-radius: 8px;
-  font-size: 1.25rem;
+  background: linear-gradient(145deg, #555, #333);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
   cursor: pointer;
   user-select: none;
-  transition: background 0.2s ease;
+  transition: all 0.1s ease;
+  border: 2px solid #666;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .drum-pad:hover {
-  background: #999;
+  background: linear-gradient(145deg, #666, #444);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.drum-pad:active {
+  background: linear-gradient(145deg, #777, #555);
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
