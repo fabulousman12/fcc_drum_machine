@@ -92,14 +92,13 @@ function App() {
             id={pad.id}
             onClick={() => playSound(pad.key)}
           >
+            {pad.key}
             <audio
               className="clip"
               id={pad.key}
               src={pad.src}
               preload="auto"
             />
-            <div className="key">{pad.key}</div>
-            <div className="name">{pad.id}</div>
           </div>
         ))}
       </div>

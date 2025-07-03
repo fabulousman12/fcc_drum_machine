@@ -63,9 +63,10 @@ h1 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   min-height: 80px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .drum-pad:hover {
@@ -79,17 +80,6 @@ h1 {
   color: #000;
   transform: scale(0.95);
   box-shadow: 0 0 20px #00ff00;
-}
-
-.key {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.name {
-  font-size: 0.8rem;
-  opacity: 0.8;
 }
 
 .instructions {
