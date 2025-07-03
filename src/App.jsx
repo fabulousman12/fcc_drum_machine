@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import "./App.css";
 
@@ -5,47 +6,47 @@ const drumPads = [
   {
     key: "Q",
     id: "Heater-1",
-    url: "https://cdn.freesound.org/previews/66/66717_931655-lq.mp3", // Drum hit 1
+    url: "https://cdn.freesound.org/previews/66/66717_931655-lq.mp3",
   },
   {
     key: "W",
     id: "Heater-2",
-    url: "https://cdn.freesound.org/previews/66/66716_931655-lq.mp3", // Drum hit 2
+    url: "https://cdn.freesound.org/previews/66/66716_931655-lq.mp3",
   },
   {
     key: "E",
     id: "Heater-3",
-    url: "https://cdn.freesound.org/previews/66/66715_931655-lq.mp3", // Drum hit 3
+    url: "https://cdn.freesound.org/previews/66/66715_931655-lq.mp3",
   },
   {
     key: "A",
     id: "Heater-4",
-    url: "https://cdn.freesound.org/previews/66/66714_931655-lq.mp3", // Snare
+    url: "https://cdn.freesound.org/previews/66/66714_931655-lq.mp3",
   },
   {
     key: "S",
     id: "Clap",
-    url: "https://cdn.freesound.org/previews/67/67862_931655-lq.mp3", // Clap
+    url: "https://cdn.freesound.org/previews/67/67862_931655-lq.mp3",
   },
   {
     key: "D",
     id: "Open-HH",
-    url: "https://cdn.freesound.org/previews/67/67861_931655-lq.mp3", // Open hi-hat
+    url: "https://cdn.freesound.org/previews/67/67861_931655-lq.mp3",
   },
   {
     key: "Z",
     id: "Kick-n'-Hat",
-    url: "https://cdn.freesound.org/previews/66/66720_931655-lq.mp3", // Kick + hat
+    url: "https://cdn.freesound.org/previews/66/66720_931655-lq.mp3",
   },
   {
     key: "X",
     id: "Kick",
-    url: "https://cdn.freesound.org/previews/66/66719_931655-lq.mp3", // Kick
+    url: "https://cdn.freesound.org/previews/66/66719_931655-lq.mp3",
   },
   {
     key: "C",
     id: "Closed-HH",
-    url: "https://cdn.freesound.org/previews/66/66718_931655-lq.mp3", // Closed hi-hat
+    url: "https://cdn.freesound.org/previews/66/66718_931655-lq.mp3",
   },
 ];
 
