@@ -1,62 +1,50 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-
-const drumPads = [
-  { key: "Q", id: "Heater-1" },
-  { key: "W", id: "Heater-2" },
-  { key: "E", id: "Heater-3" },
-  { key: "A", id: "Heater-4" },
-  { key: "S", id: "Clap" },
-  { key: "D", id: "Open-HH" },
-  { key: "Z", id: "Kick" },
-  { key: "X", id: "Bass" },
-  { key: "C", id: "Closed-HH" },
-];
+import React from 'react';
+import './App.css';
 
 function App() {
-  const [display, setDisplay] = useState("Press a key or click a pad");
-  const [activePad, setActivePad] = useState("");
-  
-  console.log("App component rendering...");
-
-  const playSound = (key) => {
-    const pad = drumPads.find((p) => p.key === key);
-
-    if (pad) {
-      setDisplay(`${pad.id} - ${key}`);
-      setActivePad(key);
-
-      // Visual feedback duration
-      setTimeout(() => setActivePad(""), 150);
-    }
-  };
-
-  useEffect(() => {
-    const handleKeyPress = (event) => {
-      const key = event.key.toUpperCase();
-      playSound(key);
-    };
-
-    document.addEventListener("keydown", handleKeyPress);
-    return () => document.removeEventListener("keydown", handleKeyPress);
-  }, []);
+  console.log("App component is rendering!");
 
   return (
     <div id="drum-machine">
       <h1>🥁 Drum Machine</h1>
-      <div id="display">{display}</div>
+      <div id="display">Ready to play!</div>
       <div className="pad-grid">
-        {drumPads.map((pad) => (
-          <div
-            key={pad.key}
-            className={`drum-pad ${activePad === pad.key ? 'active' : ''}`}
-            id={pad.id}
-            onClick={() => playSound(pad.key)}
-          >
-            <div className="key">{pad.key}</div>
-            <div className="name">{pad.id}</div>
-          </div>
-        ))}
+        <div className="drum-pad" id="Heater-1">
+          <div className="key">Q</div>
+          <div className="name">Heater-1</div>
+        </div>
+        <div className="drum-pad" id="Heater-2">
+          <div className="key">W</div>
+          <div className="name">Heater-2</div>
+        </div>
+        <div className="drum-pad" id="Heater-3">
+          <div className="key">E</div>
+          <div className="name">Heater-3</div>
+        </div>
+        <div className="drum-pad" id="Heater-4">
+          <div className="key">A</div>
+          <div className="name">Heater-4</div>
+        </div>
+        <div className="drum-pad" id="Clap">
+          <div className="key">S</div>
+          <div className="name">Clap</div>
+        </div>
+        <div className="drum-pad" id="Open-HH">
+          <div className="key">D</div>
+          <div className="name">Open-HH</div>
+        </div>
+        <div className="drum-pad" id="Kick">
+          <div className="key">Z</div>
+          <div className="name">Kick</div>
+        </div>
+        <div className="drum-pad" id="Bass">
+          <div className="key">X</div>
+          <div className="name">Bass</div>
+        </div>
+        <div className="drum-pad" id="Closed-HH">
+          <div className="key">C</div>
+          <div className="name">Closed-HH</div>
+        </div>
       </div>
       <p className="instructions">
         Click the pads or press Q, W, E, A, S, D, Z, X, C keys
