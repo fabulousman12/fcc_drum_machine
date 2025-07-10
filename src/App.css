@@ -1,89 +1,149 @@
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(45deg, #1a1a2e, #16213e);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-}
-
 #drum-machine {
-  background: rgba(0, 0, 0, 0.8);
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  margin: 2rem auto;
   text-align: center;
-  border: 2px solid #333;
-  max-width: 500px;
-}
-
-h1 {
-  margin-top: 0;
-  color: #00ff00;
-  text-shadow: 0 0 10px #00ff00;
-}
-
-#display {
-  background: #000;
-  color: #00ff00;
-  padding: 1rem;
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 8px;
-  border: 2px solid #333;
-  min-height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Courier New', monospace;
+  padding: 20px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
 }
 
 .pad-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .drum-pad {
-  background: linear-gradient(145deg, #555, #333);
+  background-color: #333;
   color: white;
-  padding: 1rem;
-  border-radius: 10px;
+  border-radius: 8px;
+  padding: 20px 0;
   cursor: pointer;
-  user-select: none;
-  transition: all 0.1s ease;
-  border: 2px solid #666;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  min-height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.1s ease;
 }
 
-.drum-pad:hover {
-  background: linear-gradient(145deg, #666, #444);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-}
-
+.drum-pad:hover,
 .drum-pad.active {
-  background: linear-gradient(145deg, #00ff00, #008800);
+  background-color: #00d4ff;
   color: #000;
-  transform: scale(0.95);
-  box-shadow: 0 0 20px #00ff00;
+  transform: scale(1.05);
+}
+
+#display {
+  margin-top: 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0ff;
 }
 
 .instructions {
+  margin-top: 30px;
   font-size: 0.9rem;
-  opacity: 0.7;
-  margin-top: 1rem;
+  color: #aaa;
+}
+.controls {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.controls button {
+  padding: 10px 15px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.controls button:hover {
+  background-color: #00d4ff;
+  color: #000;
+}
+.controls button:active {
+  background-color: #19c6e9;
+  color: #000;
+}
+.record-control {
+  display: flex;
+  gap: 6px;
+}
+.record-control {
+  margin-top: 8px;
+  padding: 6px;
+  background: #b11212;
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.record-control {
+  margin-top: 8px;
+  padding: 6px;
+  background: #b11212;
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+button.active-play {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+}
+button.recording-active {
+  background-color: #e53935;
+  color: white;
+  font-weight: bold;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(229, 57, 53, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(229, 57, 53, 0); }
+}
+.recording {
+  border: 1px solid #555;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  background-color: #222;
+}
+
+.recording-controls button {
+  margin: 5px;
+  padding: 6px 10px;
+}
+
+
+/* Dark mode & variable theming */
+:root {
+  --nav-bg: #111;
+  --accent: #00d4ff;
+  --text-color: #eee;
+  --bg-color: #1e1e1e;
+}
+
+body.dark {
+  --nav-bg: #fafafa;
+  --accent: #007acc;
+  --text-color: #111;
+  --bg-color: #ffffff;
+}
+
+body {
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
