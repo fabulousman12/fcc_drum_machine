@@ -17,7 +17,7 @@ function App() {
   }, [darkMode]);
 
   return (
-    <Router>
+    <Router basename="/fcc_drum_machine">
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <Routes>
         <Route path="/" element={<DrumMachine />} />
